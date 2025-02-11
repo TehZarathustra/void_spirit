@@ -1,0 +1,25 @@
+.RemHud {
+  width: 300px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, .2);
+  horizontal-align: right;
+}
+
+.RemHud__row {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.RemHud__row Label {
+  font-size: 26px;
+  width: 100%;
+}
+
+.RemHud__label {
+  text-align: left;
+}
+
+.RemHud__value {
+  text-align: right;
+}

@@ -1,0 +1,46 @@
+<root>
+    <scripts>
+        <!-- Included JS script files go here -->
+        <include src="file://{resources}/scripts/custom_game/startPanel.js" />
+    </scripts>
+
+    <styles>
+        <!-- Included css style files go here -->
+        <include src="s2r://panorama/styles/dotastyles.css" />
+        <include src="file://{resources}/styles/custom_game/common.css" />
+        <include src="file://{resources}/styles/custom_game/startPanel.css" />
+    </styles>
+
+    <snippets>
+        <!-- Snippets go here -->
+    </snippets>
+
+    <Panel hittest="false" class="MainHud">
+        <Panel id="startPanel" class="startPanel">
+
+            <Image class="startPanel__image" src="file://{resources}/images/custom_game/remnant_scene_2.png" />
+
+            <Panel class="startPanel__dialogBox dialogBox">
+                <Label class="startPanel__title" text="AETHER REMNANT TRAINING" />
+                <Label
+                    class="startPanel__list"
+                    html="true"
+                    text="
+                        <ul>
+                            <li>Get last hits with Aether Remnant</li>
+                            <li>Round will last 3 minutes</li>
+                            <li>Mana restores on last hit</li>
+                            <li>Running out of mana will lead to a loss</li>
+                        </ul>
+                    "
+                />
+
+                <TextButton
+                    class="startPanel__button DefaultValveButtonClass"
+                    onactivate="OnCloseButtonClicked()"
+                    text="Start"
+                />
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

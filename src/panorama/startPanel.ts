@@ -1,0 +1,53 @@
+$.Msg('startPanel loaded');
+
+function OnCloseButtonClicked() {
+    $.Msg("Example close button clicked");
+
+    // Find panel by id
+    const examplePanel = $("#startPanel");
+
+    // Remove panel
+    examplePanel.DeleteAsync(0);
+
+    // Send event to server
+    GameEvents.SendCustomGameEventToServer('ui_panel_closed', {});
+}
+
+GameEvents.Subscribe('remnant_training_finished', (data) => {
+    $.Msg('Lmao >>>>', data)
+  
+    const parentPanel = $.GetContextPanel(); // the root panel of the current XML context
+    const newChildPanel = $.CreatePanel('Panel', parentPanel, 'ChildPanelID');
+    newChildPanel.BLoadLayout('file://{resources}/layout/custom_game/remnant_result.xml', false, false);
+  });
+
+GameEvents.Subscribe("example_event", (data: NetworkedData<ExampleEventData>) => {
+    const myNumber = data.myNumber;
+    const myString = data.myString;
+
+    const myBoolean = data.myBoolean; // After sending to client this is now type 0 | 1!
+
+    const myArrayObject = data.myArrayOfNumbers; // After sending this is now an object!
+
+    const myArray = toArray(myArrayObject); // We can turn it back into an array ourselves.
+
+    $.Msg("Received example event", myNumber, myString, myBoolean, myArrayObject, myArray);
+
+});
+
+/**
+ * Turn a table object into an array.
+ * @param obj The object to transform to an array.
+ * @returns An array with items of the value type of the original object.
+ */
+function toArray<T>(obj: Record<number, T>): T[] {
+    const result = [];
+    
+    let key = 1;
+    while (obj[key]) {
+        result.push(obj[key]);
+        key++;
+    }
+
+    return result;
+}

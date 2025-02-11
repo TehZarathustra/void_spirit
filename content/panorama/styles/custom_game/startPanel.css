@@ -1,0 +1,44 @@
+.startPanel {
+    width: 640px;
+    height: 600px;
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+.startPanel__image {
+    width: 640px;
+    height: 200px;
+    horizontal-align: center;
+}
+
+.startPanel__dialogBox {
+    width: 640px;
+    height: 250px;
+    y: 200px;
+}
+
+.startPanel__title {
+    horizontal-align: center;
+    font-size: 30px;
+    color: aliceblue;
+    margin-top: 10px;
+    letter-spacing: 8px;
+    font-weight: bold;
+}
+
+.startPanel__list {
+    font-size: 18px;
+    line-height: 30px;
+    horizontal-align: center;
+    y: 50px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.startPanel__button {
+    horizontal-align: center;
+    vertical-align: bottom;
+    margin-bottom: 20px;
+    /* box-shadow: black -4px -4px 8px 8px; */
+    margin-top: 20px;
+  }

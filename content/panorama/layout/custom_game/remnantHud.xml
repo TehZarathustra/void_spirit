@@ -1,0 +1,23 @@
+<root>
+    <scripts>
+        <!-- Included JS script files go here -->
+        <include src="file://{resources}/scripts/custom_game/remnantHud.js" />
+    </scripts>
+
+    <styles>
+        <!-- Included css style files go here -->
+        <include src="s2r://panorama/styles/dotastyles.css" />
+        <include src="file://{resources}/styles/custom_game/remnantHud.css" />
+    </styles>
+
+    <snippets>
+        <!-- Snippets go here -->
+    </snippets>
+
+    <Panel hittest="false" class="RemHud">
+        <Panel class="RemHud__row">
+            <Label class="RemHud__label" text="SCORE" />
+            <Label class="RemHud__value" text="0" id="score" />
+        </Panel>
+    </Panel>
+</root>

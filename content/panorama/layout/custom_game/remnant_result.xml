@@ -1,0 +1,35 @@
+<root>
+    <scripts>
+        <!-- Included JS script files go here -->
+        <include src="file://{resources}/scripts/custom_game/remnant_result.js" />
+    </scripts>
+
+    <styles>
+        <!-- Included css style files go here -->
+        <include src="s2r://panorama/styles/dotastyles.css" />
+        <include src="file://{resources}/styles/custom_game/common.css" />
+        <include src="file://{resources}/styles/custom_game/remnant_result.css" />
+    </styles>
+
+    <snippets>
+        <!-- Snippets go here -->
+    </snippets>
+
+    <Panel hittest="false" class="MainHud">
+        <Panel id="remnantResult" class="remnantResult dialogBox">
+            <Label class="remnantResult__title" text="TOTAL SCORE" />
+            <Label id="remnantResult__score" class="remnantResult__score" text="0" />
+            <Panel class="remnantResult__controls">
+                <TextButton
+                    class="DefaultValveButtonClass"
+                    onactivate="onRemnantRestart()"
+                    text="Restart"
+                />
+                <TextButton
+                    class="DefaultValveButtonClass"
+                    text="Next"
+                />
+            </Panel>
+        </Panel>
+    </Panel>
+</root>
