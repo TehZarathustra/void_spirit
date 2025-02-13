@@ -3,7 +3,7 @@
         <include src="file://{resources}/scripts/custom_game/manifest.js" />
     </scripts>
     <Panel>
-        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/startPanel.xml" />
-        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/remnantHud.xml" />
+        <!-- there used to be preloaded panels, not sure if i need or want them -->
+        <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/startPanel.xml" /> -->
     </Panel>
 </root>

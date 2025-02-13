@@ -29,6 +29,9 @@ export class RemnantTraining {
 
   private onInit() {
     this.subscribe()
+
+    // show panorama panel
+    CustomGameEventManager.Send_ServerToPlayer(getPlayer()!, 'remnant_training_started', {score: 0} as never);
   }
 
   private subscribe() {
@@ -41,24 +44,6 @@ export class RemnantTraining {
         const hero = getPlayerHero();
 
         if (!hero) return;
-
-        this.start(hero);
-    })
-
-    // Register event listeners for events from the UI
-    CustomGameEventManager.RegisterListener("ui_panel_closed", (_, data) => {
-        print(`Player ${data.PlayerID} has closed their UI panel.`);
-
-        // Respond by sending back an example event
-        const player = PlayerResource.GetPlayer(data.PlayerID)!;
-        CustomGameEventManager.Send_ServerToPlayer(player, "example_event", {
-            myNumber: 42,
-            myBoolean: true,
-            myString: "Hello!",
-            myArrayOfNumbers: [1.414, 2.718, 3.142]
-        });
-
-        const hero = player.GetAssignedHero();
 
         this.start(hero);
     });
