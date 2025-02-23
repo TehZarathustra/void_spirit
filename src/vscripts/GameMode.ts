@@ -1,5 +1,6 @@
 import {reloadable} from "./lib/tstl-utils";
 import {RemnantTraining} from "./RemnantTraining";
+import {ComboTraining} from "./ComboTraining";
 
 declare global {
     interface CDOTAGameRules {
@@ -11,6 +12,8 @@ declare global {
 export class GameMode {
     public static Precache(this: void, context: CScriptPrecacheContext) {
         // PrecacheResource("particle", "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf", context);
+        PrecacheUnitByNameSync('npc_dota_hero_queenofpain', context)
+        PrecacheUnitByNameSync('npc_dota_hero_voidspirit', context)
         // PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context);
     }
 
@@ -22,8 +25,14 @@ export class GameMode {
     constructor() {
         this.configure();
 
+        const OnUpdateSelectedUnit = () => {
+            print('kekekes s>>>>> ')
+        }
+
         // Register event listeners for dota engine events
         ListenToGameEvent("game_rules_state_change", () => this.OnStateChange(), undefined);
+        // ListenToGameEvent( "dota_player_update_query_unit", () => OnUpdateSelectedUnit(), undefined);
+        // ListenToGameEvent( "dota_player_update_selected_unit", () => OnUpdateSelectedUnit(), undefined);
     }
 
     private configure(): void {
@@ -69,7 +78,8 @@ export class GameMode {
     private StartGame(): void {
         print("Game starting!");
         
-        const remTraining = new RemnantTraining();
+        // const remTraining = new RemnantTraining();
+        const comboTraining = new ComboTraining();
     }
 
     public Reload() {
